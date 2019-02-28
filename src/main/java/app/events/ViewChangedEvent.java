@@ -7,6 +7,7 @@ package app.events;
 
 import app.view.View;
 import java.beans.ConstructorProperties;
+import lombok.Getter;
 
 /**
  *
@@ -14,11 +15,8 @@ import java.beans.ConstructorProperties;
  */
 public class ViewChangedEvent {
     
+    @Getter
     private View view;
-
-    public View getView() {
-        return view;
-    }
     
     private ViewChangedEvent() {        
     }

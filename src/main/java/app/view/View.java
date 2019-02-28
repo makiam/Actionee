@@ -24,13 +24,14 @@ public final class View {
     @Getter
     private final Model model;
     
-    
-    private Selection selection;
+    @Getter
+    private final Selection selection;
     
     public View(Model model) {
         
         this.model = model;
         this.peer = new MainViewImpl(this);
+        this.selection = new Selection(this);
         
         SwingUtilities.invokeLater(new Runnable() {
             @Override
