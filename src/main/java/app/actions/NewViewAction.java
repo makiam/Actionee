@@ -15,7 +15,7 @@ import javax.swing.AbstractAction;
  *
  * @author maksim.khramov
  */
-public class NewViewAction extends AbstractAction {
+public final class NewViewAction extends AbstractAction {
 
     private NewViewAction() {        
     }
