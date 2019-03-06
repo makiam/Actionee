@@ -13,7 +13,7 @@ import app.model.Model;
  */
 public class ModelAddEvent {
     
-    private Model model;
+    private final Model model;
 
     public Model getModel() {
         return model;

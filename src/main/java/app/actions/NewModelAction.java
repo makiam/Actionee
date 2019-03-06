@@ -5,11 +5,10 @@
  */
 package app.actions;
 
-import app.events.ModelAddEvent;
+import app.Application;
 import app.model.Model;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
-import org.greenrobot.eventbus.EventBus;
 
 /**
  *
@@ -22,8 +21,8 @@ public class NewModelAction extends AbstractAction {
     }
     
     @Override
-    public void actionPerformed(ActionEvent e) {        
-        EventBus.getDefault().post(new ModelAddEvent(new Model()));
+    public void actionPerformed(ActionEvent e) {
+        Application.getInstance().bind(new Model(), null);
     }
     
 }

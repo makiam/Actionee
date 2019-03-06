@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.logging.Level;
+import java.util.stream.Stream;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import lombok.Getter;
@@ -37,7 +38,10 @@ public final class Application {
     @Getter
     private View activeView = null;
 
-    
+
+    public Stream<Model> getModels() {
+        return modelViewsMap.keySet().stream();
+    }
     
     /**
      * @param args the command line arguments
@@ -66,7 +70,6 @@ public final class Application {
     @Subscribe
     public void onModelAddEvent(ModelAddEvent event) {
         logger.log(Level.FINE, "Model Added: {0}", event.getModel());
-        modelViewsMap.put(event.getModel(), new LinkedList<>());
     }
     
     @Subscribe
@@ -76,8 +79,15 @@ public final class Application {
     }
 
     public final void bind(Model model, View view) {
-        LinkedList<View> views = modelViewsMap.getOrDefault(view, new LinkedList<>());
+        if(null == model) {
+            logger.log(Level.FINE, "No model to add...");
+            return;
+        }
+        LinkedList<View> views = modelViewsMap.getOrDefault(model, new LinkedList<>());
+        bus.post(new ModelAddEvent(model));
+        if(null == view) return;
         views.add(view);
+        
     }
     
     
