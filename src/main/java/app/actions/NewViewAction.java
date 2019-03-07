@@ -25,8 +25,7 @@ public final class NewViewAction extends AbstractAction {
         putValue("model", model);
     }
     
-    @Override
-    @SuppressWarnings("ResultOfObjectAllocationIgnored")
+    @Override    
     public void actionPerformed(ActionEvent e) {
         Model model = (Model)getValue("model");
         View view = new View(model);

@@ -6,7 +6,6 @@
 
 import app.Application;
 import app.events.ModelAddEvent;
-import app.model.FileModel;
 import app.model.Scene;
 import junit.framework.Assert;
 import org.greenrobot.eventbus.EventBus;
@@ -30,13 +29,23 @@ public class ModelAddedTest {
 
 
     @Test
-    public void doTestAndRecieveModelAddedEvent() {
-        FileModel model = new Scene();        
-        Application.getInstance().bind(model, null);
+    public void doTestAddAndRecieveModelsAddedEvent() {        
+        Application.getInstance().bind(new Scene(), null);
         
         Assert.assertEquals(1, counter);
+        Assert.assertEquals(1, Application.getInstance().getModels().count());
+        
     }
 
+    @Test
+    public void doTestAddAndRecieveModelsAddedEvent2() {
+        Application.getInstance().bind(new Scene(), null);
+        Application.getInstance().bind(new Scene(), null);
+        
+        Assert.assertEquals(2, counter);
+        Assert.assertEquals(2, Application.getInstance().getModels().count());
+        
+    }
     
     @Subscribe
     public void onModelAddEventFired(ModelAddEvent event) {

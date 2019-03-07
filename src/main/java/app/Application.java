@@ -82,8 +82,8 @@ public final class Application {
         if(null == model) {
             logger.log(Level.FINE, "No model to add...");
             return;
-        }
-        LinkedList<View> views = modelViewsMap.getOrDefault(model, new LinkedList<>());
+        }        
+        LinkedList<View> views = modelViewsMap.putIfAbsent(model, new LinkedList<>());
         bus.post(new ModelAddEvent(model));
         if(null == view) return;
         views.add(view);
