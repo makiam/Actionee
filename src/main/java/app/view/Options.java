@@ -10,23 +10,28 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.WindowConstants;
 
 /**
  *
  * @author maksim.khramov
  */
 public class Options extends JDialog implements ActionListener {
-
-    private JButton buttonOK = new JButton("OK", new ImageIcon(getClass().getClassLoader().getResource("actionee/images/ok.png")));
     
     @Override
     protected void dialogInit() {
         super.dialogInit();
+        this.setTitle("Options");
+        this.setSize(640, 480);
+        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        JButton buttonOK = new JButton("OK", new ImageIcon(getClass().getClassLoader().getResource("actionee/images/ok.png")));
+        buttonOK.addActionListener(this::actionPerformed);
+        this.add(buttonOK);
     }
 
     // Action listener implementation
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        dispose();
     }
 }

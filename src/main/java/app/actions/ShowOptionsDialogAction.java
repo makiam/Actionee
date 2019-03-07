@@ -5,10 +5,11 @@
  */
 package app.actions;
 
+import app.view.Options;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -22,8 +23,8 @@ public class ShowOptionsDialogAction extends AbstractAction {
 
     
     @Override
-    public void actionPerformed(ActionEvent e) {
-        JOptionPane.showMessageDialog(app.Application.getInstance().getActiveView().getPeer(), "Options");
+    public void actionPerformed(ActionEvent e) {                
+        SwingUtilities.invokeLater(() -> { new Options().setVisible(true); });
     }
     
 }

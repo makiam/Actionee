@@ -6,8 +6,7 @@
 package app.actions;
 
 import app.Application;
-import app.model.Model;
-import java.awt.Component;
+import app.view.View;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
@@ -26,9 +25,8 @@ public class SaveModelAction  extends AbstractAction {
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        Model model = Application.getInstance().getActiveView().getModel();
-        Component cc = Application.getInstance().getActiveView().getPeer();
-        JOptionPane.showMessageDialog(cc, "Save model" + model);
+        View view = Application.getInstance().getActiveView();
+        JOptionPane.showMessageDialog(view.getPeer(), "Save model" + view.getModel());
     }
     
 }
