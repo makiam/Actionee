@@ -5,15 +5,23 @@
  */
 package app.model;
 
+import app.events.model.ModelChangedEvent;
 import lombok.Getter;
-import lombok.Setter;
 
 /**
  *
  * @author maksim.khramov
  */
-public class Model {
+public class Model extends SObject {
     
-    @Getter @Setter
+    @Getter
     private boolean modified = false;
+
+    public void setModified(boolean modified) {
+        if(modified == this.modified) return;
+        
+        this.modified = modified;
+        bus.post(new ModelChangedEvent(this));
+        
+    }
 }

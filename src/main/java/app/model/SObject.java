@@ -11,7 +11,9 @@ import org.greenrobot.eventbus.EventBus;
  *
  * @author maksim.khramov
  */
-public class SObject {
+public abstract class SObject {
     
-    private final EventBus bus = EventBus.getDefault();
+
+    protected final EventBus bus = EventBus.getDefault();
+    
 }
