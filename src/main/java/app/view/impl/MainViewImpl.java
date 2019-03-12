@@ -9,6 +9,7 @@ import app.actions.CloneViewAction;
 import app.actions.CloseViewAction;
 import app.actions.CopyAction;
 import app.actions.OpenModelAction;
+import app.actions.PasteAction;
 import app.actions.QuitAction;
 import app.actions.SaveModelAction;
 import app.actions.ShowOptionsDialogAction;
@@ -54,6 +55,7 @@ public final class MainViewImpl extends JFrame implements WindowListener {
         fileMenu.add(new QuitAction());
         JMenu editMenu = this.getJMenuBar().add(new JMenu("Edit"));
         editMenu.add(new SelectionListenerMenuItem(new CopyAction()));
+        editMenu.add(new PasteAction());
         JMenu viewMenu = this.getJMenuBar().add(new JMenu("View"));        
         viewMenu.add(new CloneViewAction());
         JMenu toolMenu = this.getJMenuBar().add(new JMenu("Tools"));
