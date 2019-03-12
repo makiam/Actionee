@@ -6,7 +6,7 @@
 package app.view.impl;
 
 import app.events.ViewChangedEvent;
-import app.events.ViewSelectionChangedEvent;
+import app.events.selection.ViewSelectionChangedEvent;
 import app.view.View;
 import javax.swing.Action;
 import javax.swing.JMenuItem;

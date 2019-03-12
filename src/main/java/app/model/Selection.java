@@ -5,7 +5,7 @@
  */
 package app.model;
 
-import app.events.ViewSelectionChangedEvent;
+import app.events.selection.ViewSelectionChangedEvent;
 import app.view.View;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,16 +18,14 @@ import org.greenrobot.eventbus.EventBus;
 public final class Selection {
     
     private final EventBus bus = EventBus.getDefault();
-    
-    private boolean empty = true;
 
     public boolean isEmpty() {
         return items.isEmpty();
     }
     
-    private View view;
+    private final View view;
     
-    private Set<Object> items = new HashSet<>();
+    private final Set<Object> items = new HashSet<>();
     
     public Selection(View view) {
         this.view = view;
@@ -36,7 +34,21 @@ public final class Selection {
     
     public final void clear() {
         items.clear();
-        bus.post(new ViewSelectionChangedEvent());
+        bus.post(new ViewSelectionChangedEvent(view, items));
     }
     
+    public final void add(Object item) {
+        if(items.add(item)) {
+            bus.post(new ViewSelectionChangedEvent(view, items));
+        }        
+    }
+    
+    public final void addAll(Set addItems) {
+        if(items.addAll(addItems)) {
+            bus.post(new ViewSelectionChangedEvent(view, items));
+        }
+        
+    }
+
+
 }

@@ -5,6 +5,8 @@
  */
 package app.actions;
 
+import app.Application;
+import app.view.View;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 
@@ -20,7 +22,12 @@ public class CopyAction extends AbstractAction {
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        View view = Application.getInstance().getActiveView();
         
+        if(view.getSelection().isEmpty()) return;
+        {
+            
+        }
     }
     
     

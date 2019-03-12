@@ -3,27 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package app.events;
+package app.events.selection;
 
 import app.view.View;
-import java.beans.ConstructorProperties;
+import java.util.Set;
 import lombok.AccessLevel;
-import lombok.Getter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 /**
  *
  * @author maksim.khramov
  */
 
+
+@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class ViewChangedEvent {
+@Data
+public class ViewSelectionChangedEvent {
+    @NonNull private View view;
+    @NonNull private Set<Object> selection;
     
-    @Getter
-    private View view;
     
-    @ConstructorProperties({"view"})
-    public ViewChangedEvent(View view) {
-        this.view = view;
-    }
 }

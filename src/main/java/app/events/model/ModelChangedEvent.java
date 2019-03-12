@@ -6,19 +6,17 @@
 package app.events.model;
 
 import app.model.Model;
-import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 /**
  *
  * @author maksim.khramov
  */
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class ModelChangedEvent {
+//@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public final class ModelChangedEvent {
     
     @Getter
-    private Model model;
+    private final Model model;
     
     public ModelChangedEvent(Model model) {
         this.model = model;

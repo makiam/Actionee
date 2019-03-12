@@ -1,3 +1,5 @@
+package app.model;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,7 +8,6 @@
 
 import app.Application;
 import app.events.ModelAddEvent;
-import app.model.Scene;
 import junit.framework.Assert;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;

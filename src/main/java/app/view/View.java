@@ -19,7 +19,7 @@ import lombok.Getter;
 public final class View {
     
     @Getter
-    private JFrame peer;
+    private final JFrame peer;
     
     @Getter
     private final Model model;
@@ -33,16 +33,13 @@ public final class View {
         this.peer = new MainViewImpl(this);
         this.selection = new Selection(this);
         
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                peer.setTitle("View:" + model);        
-                peer.setVisible(true);
-            }
-            
-        });
+        SwingUtilities.invokeLater(this::setVisible);
         
-
+    }
+    
+    private void setVisible() {
+        peer.setTitle("View:" + model);
+        peer.setVisible(true);
     }
     
     public final void close() {
