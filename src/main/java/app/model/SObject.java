@@ -24,6 +24,7 @@ public abstract class SObject implements Transferable, ClipboardOwner {
 
     @Override
     public DataFlavor[] getTransferDataFlavors() {
+        
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

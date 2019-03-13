@@ -5,9 +5,11 @@
  */
 package app.view.impl;
 
+import app.actions.AboutAction;
 import app.actions.CloneViewAction;
 import app.actions.CloseViewAction;
 import app.actions.CopyAction;
+import app.actions.GroupAction;
 import app.actions.OpenModelAction;
 import app.actions.PasteAction;
 import app.actions.QuitAction;
@@ -55,12 +57,14 @@ public final class MainViewImpl extends JFrame implements WindowListener {
         fileMenu.add(new QuitAction());
         JMenu editMenu = this.getJMenuBar().add(new JMenu("Edit"));
         editMenu.add(new SelectionListenerMenuItem(new CopyAction()));
+        editMenu.add(new SelectionListenerMenuItem(new GroupAction()));
         editMenu.add(new PasteAction());
         JMenu viewMenu = this.getJMenuBar().add(new JMenu("View"));        
         viewMenu.add(new CloneViewAction());
         JMenu toolMenu = this.getJMenuBar().add(new JMenu("Tools"));
         toolMenu.add(new ShowOptionsDialogAction());
         JMenu helpMenu = this.getJMenuBar().add(new JMenu("Help"));
+        helpMenu.add(new AboutAction());
     }
 
     @Override

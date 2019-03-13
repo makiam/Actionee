@@ -25,7 +25,7 @@ public final class Selection {
     
     private final View view;
     
-    private final Set<Object> items = new HashSet<>();
+    private final Set<SObjectRef> items = new HashSet<>();
     
     public Selection(View view) {
         this.view = view;
@@ -37,13 +37,13 @@ public final class Selection {
         bus.post(new ViewSelectionChangedEvent(view, items));
     }
     
-    public final void add(Object item) {
+    public final void add(SObjectRef item) {
         if(items.add(item)) {
             bus.post(new ViewSelectionChangedEvent(view, items));
         }        
     }
     
-    public final void addAll(Set addItems) {
+    public final void addAll(Set<SObjectRef> addItems) {
         if(items.addAll(addItems)) {
             bus.post(new ViewSelectionChangedEvent(view, items));
         }

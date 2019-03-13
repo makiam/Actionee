@@ -6,29 +6,23 @@
 package app.actions;
 
 import app.Application;
-import app.model.Selection;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author maksim.khramov
  */
-public class CopyAction extends AbstractAction {
+public class AboutAction extends AbstractAction {
 
-    public CopyAction() {
-        super("Copy");
+    public AboutAction() {
+        super("About");
     }
-    
+
     @Override
-    public void actionPerformed(ActionEvent e) {        
-        Selection selection = Application.getInstance().getActiveView().getSelection();
-        if(selection.isEmpty()) return;
-        {
-            
-        }
+    public void actionPerformed(ActionEvent e) {
+        JOptionPane.showMessageDialog(Application.getInstance().getActiveView().getPeer(), "Art Of Illusion UI Demo App");
     }
-    
-    
     
 }

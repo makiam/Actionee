@@ -5,6 +5,7 @@
  */
 package app.events.selection;
 
+import app.model.SObjectRef;
 import app.view.View;
 import java.util.Set;
 import lombok.AccessLevel;
@@ -24,7 +25,7 @@ import lombok.NonNull;
 @Data
 public class ViewSelectionChangedEvent {
     @NonNull private View view;
-    @NonNull private Set<Object> selection;
+    @NonNull private Set<SObjectRef> selection;
     
     
 }
