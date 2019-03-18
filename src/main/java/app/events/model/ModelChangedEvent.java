@@ -5,21 +5,18 @@
  */
 package app.events.model;
 
+import app.events.ModelEventBase;
 import app.model.Model;
-import lombok.Getter;
 
 /**
  *
  * @author maksim.khramov
  */
-//@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class ModelChangedEvent {
-    
-    @Getter
-    private final Model model;
+
+public final class ModelChangedEvent extends ModelEventBase {
     
     public ModelChangedEvent(Model model) {
-        this.model = model;
+        super(model);
     }
 
 }

@@ -6,23 +6,15 @@
 package app.events;
 
 import app.model.Model;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
 /**
  *
  * @author maksim.khramov
  */
 
-
-@AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
-@Data
-public class ModelAddEvent {
+public class ModelAddEvent extends ModelEventBase {
     
-    @NonNull private final Model model;
-
+    public ModelAddEvent(Model model) {
+        super(model);
+    }
 }

@@ -13,7 +13,7 @@ import lombok.NonNull;
  *
  * @author maksim.khramov
  */
-class ModelEventBase {
+public class ModelEventBase {
     
     @Getter @NonNull private final Model model;
     
