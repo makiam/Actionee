@@ -21,6 +21,7 @@ public class CloneViewAction extends AbstractAction {
     public CloneViewAction() {
         super("Clone", new ImageIcon(ClassLoader.getSystemResource("actionee/images/clone.png")));
     }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         View view = Application.getInstance().getActiveView();

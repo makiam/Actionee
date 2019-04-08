@@ -5,6 +5,7 @@
  */
 package app.view.impl;
 
+import app.actions.ShowViewsAction;
 import app.actions.AboutAction;
 import app.actions.CloneViewAction;
 import app.actions.CloseViewAction;
@@ -61,6 +62,7 @@ public final class MainViewImpl extends JFrame implements WindowListener {
         editMenu.add(new PasteAction());
         JMenu viewMenu = this.getJMenuBar().add(new JMenu("View"));        
         viewMenu.add(new CloneViewAction());
+        viewMenu.add(new ShowViewsAction());
         JMenu toolMenu = this.getJMenuBar().add(new JMenu("Tools"));
         toolMenu.add(new ShowOptionsDialogAction());
         JMenu helpMenu = this.getJMenuBar().add(new JMenu("Help"));
@@ -73,12 +75,12 @@ public final class MainViewImpl extends JFrame implements WindowListener {
 
     @Override
     public void windowClosing(WindowEvent e) {
-        System.out.println("Closing");
+        logger.log(Level.FINE, "Closing: {0}", e.getWindow());
     }
 
     @Override
     public void windowClosed(WindowEvent e) {
-        System.out.println("Closed");
+        logger.log(Level.FINE, "Closed: {0}", e.getWindow());
     }
 
     @Override

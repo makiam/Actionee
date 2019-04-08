@@ -6,6 +6,7 @@
 package app.actions;
 
 import app.Application;
+import app.model.Model;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
@@ -24,7 +25,9 @@ public class OpenModelAction extends AbstractAction {
     @Override
     public void actionPerformed(ActionEvent e) {
         JFileChooser chooser = new JFileChooser();
-        chooser.showOpenDialog(Application.getInstance().getActiveView().getPeer());
+        if(chooser.showOpenDialog(Application.getInstance().getActiveView().getPeer()) == JFileChooser.APPROVE_OPTION) {
+            new NewViewAction(new Model()).actionPerformed(null);
+        }
 
     }
     

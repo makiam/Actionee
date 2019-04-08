@@ -43,6 +43,11 @@ public final class Application {
         return modelViewsMap.keySet().stream();
     }
     
+    public final Stream<View> getModelViews(Model model) {
+        return modelViewsMap.get(model).stream();
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -83,14 +88,17 @@ public final class Application {
             logger.log(Level.FINE, "No model to add...");
             return;
         }        
-        LinkedList<View> views = modelViewsMap.putIfAbsent(model, new LinkedList<>());
+        LinkedList<View> views = modelViewsMap.computeIfAbsent(model, this::createViewsList);
+
         bus.post(new ModelAddEvent(model));
         if(null == view) return;
         views.add(view);
         
     }
     
-    
+    LinkedList<View> createViewsList(Model model) {
+        return new LinkedList<>();
+    }
     
 }
 

@@ -5,6 +5,7 @@
  */
 package app.view;
 
+import app.Application;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
@@ -17,6 +18,11 @@ import javax.swing.WindowConstants;
  * @author maksim.khramov
  */
 public class Options extends JDialog implements ActionListener {
+
+    public Options() {
+        super(Application.getInstance().getActiveView().getPeer(), true);
+    }
+
     
     @Override
     protected void dialogInit() {
